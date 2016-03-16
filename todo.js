@@ -4,16 +4,13 @@ angular.module('todoApp').controller('TodoListController', function($scope) {
   $scope.addTodo = function() {
     $scope.newTodo.done = false;
     $scope.todos.push($scope.newTodo);
-    });
     $scope.newTodo = '';
   }
-  $scope.deleteTodo = function() {
-    $scope.todos.push({
-      done: false,
-      task: $scope.deleteTodo
-    });
-    $scope.deleteTodo = '';  
+
+  $scope.deleteTodo = function(index) {
+    $scope.todos.splice(index);
   }
+  
   $scope.getRemaining = function() {
     var count = 0;
     angular.forEach($scope.todos, function(todo) {
