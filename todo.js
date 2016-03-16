@@ -1,10 +1,9 @@
-angular.module('todoApp', []).controller('TodoListController', function($scope) {
+angular.module('todoApp').controller('TodoListController', function($scope) {
   $scope.todos = [];
 
   $scope.addTodo = function() {
-    $scope.todos.push({
-      done: false,
-      task: $scope.newTodo
+    $scope.newTodo.done = false;
+    $scope.todos.push($scope.newTodo);
     });
     $scope.newTodo = '';
   }
